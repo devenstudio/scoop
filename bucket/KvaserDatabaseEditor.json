@@ -1,17 +1,27 @@
 {
     "version": "3.28.137",
-    "description": "Kvaser Database Editor 3 (candbfd).",
-    "homepage": "https://kvaser.com/single-download/?download_id=47183",
-    "license": {
-        "identifier": "Freeware",
-        "url": "https://kvaser.com/single-download/?download_id=47183"
-    },
+    "description": "Kvaser Database Editor for managing CAN signals, messages, and nodes",
+    "homepage": "https://www.kvaser.com/software/kvaser-database-editor/",
+    "license": "Proprietary",
     "url": "https://resources.kvaser.com/PreProductionAssets/Product_Resources/kvaser_database_editor_setup_3_28_137.exe",
     "hash": "9001E799239BD95087E6DF6520653FEE77F7D16632919D4A560101729F621B1E",
+    "installer": {
+        "script": [
+            "Start-Process -FilePath \"$dir\\kvaser_database_editor_setup_3_28_137.exe\" -ArgumentList '/S' -Wait"
+        ]
+    },
+    "bin": "dbedit.exe",
     "shortcuts": [
         [
             "dbedit.exe",
             "KvaserDBEditor"
         ]
-    ]
+    ],
+    "checkver": {
+        "url": "https://www.kvaser.com/downloads/",
+        "regex": "kvaser_database_editor_setup_([\\d.]+)\\.exe"
+    },
+    "autoupdate": {
+        "url": "https://resources.kvaser.com/PreProductionAssets/Product_Resources/kvaser_database_editor_setup_$version.exe"
+    }
 }
